@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<title>Vue Select2</title>
+
+<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/http-vue-loader@1.4.2/src/httpVueLoader.js"></script>
+
+<!-- SCRIPT DIPERLUKAN UNTUK KOMPONEN select2 -->
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/select2@4.0.3/dist/css/select2.min.css"/>
+<script src="https://unpkg.com/jquery@3.1.1/dist/jquery.js"></script>
+<script src="https://unpkg.com/select2@4.0.3/dist/js/select2.js"></script>
+
+
+</head>
+<body>
+
+<div id="app">
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="form-group">
+			<select2 :options="options" v-model="selected"></select2>
+		</div>
+	</div>
+</div>
+</div>
+
+<script>
+new Vue({
+	el: "#app",
+	components: {
+		'select2' : httpVueLoader('./select2.vue')
+	},
+	data: {
+	  selected: 2,
+	  options: [{ id: 1, text: "Hello" }, { id: 2, text: "World" }]
+	}
+});
+</script>
+</body>
+</html>
